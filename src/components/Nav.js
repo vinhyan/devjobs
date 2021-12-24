@@ -4,12 +4,21 @@ import React from "react";
 import styled from "styled-components";
 //Router
 import { Link } from "react-router-dom";
+//redux
+import { clearSearch } from "../features/searchSlice";
+import { useDispatch } from "react-redux";
+import { clearFilteredJobs } from "../features/jobsSlice";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(clearSearch);
+    dispatch(clearFilteredJobs);
+  };
   return (
     <NavStyled>
       <div className="header">
-        <LinkStyled to="/">
+        <LinkStyled to="/" onClick={handleClick}>
           <h1>devjobs</h1>
         </LinkStyled>
         <div className="darkmode">
@@ -107,6 +116,12 @@ const NavStyled = styled.div`
       -webkit-transform: translateX(25px);
       -ms-transform: translateX(25px);
       transform: translateX(25px);
+    }
+  }
+
+  @media (max-width: 375px) {
+    .header {
+      padding: 32px 0;
     }
   }
 `;

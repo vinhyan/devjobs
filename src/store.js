@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import jobsSlice from "./features/jobsSlice";
+import searchSlice from "./features/searchSlice";
 
 export default configureStore({
   middleware: (getDefaultMiddleware) =>
@@ -8,5 +9,6 @@ export default configureStore({
     }),
   reducer: {
     jobListing: jobsSlice,
+    search: searchSlice,
   },
 });

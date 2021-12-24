@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+//redux
 import { useDispatch, useSelector } from "react-redux";
-import { loadJobs, jobsSelect } from "../features/jobsSlice";
+import {
+  loadJobs,
+  jobsSelect,
+  searchedJobsSelect,
+} from "../features/jobsSlice";
 //component
 import SearchBar from "./SearchBar";
 import Job from "./Job";
@@ -14,6 +19,7 @@ const JobList = () => {
   const [visibleItems, setVisibleItems] = useState(12);
   const dispatch = useDispatch();
   const jobs = useSelector(jobsSelect);
+  const searchedJobs = useSelector(searchedJobsSelect);
 
   useEffect(() => {
     dispatch(loadJobs);
@@ -28,17 +34,27 @@ const JobList = () => {
     <OuterContainer>
       <SearchBar />
       <JobListContainer>
-        <JobListStyled>
-          {jobs.slice(0, visibleItems).map((job) => (
-            <Job job={job} key={job.id} />
-          ))}
-        </JobListStyled>
-        <LoadMoreButton
-          allLoaded={jobs.length < visibleItems ? true : false}
-          onClick={handleLoadClick}
-        >
-          Load more
-        </LoadMoreButton>
+        {searchedJobs.length ? (
+          <JobListStyled>
+            {searchedJobs.slice(0, visibleItems).map((job) => (
+              <Job job={job} key={job.id} />
+            ))}
+          </JobListStyled>
+        ) : (
+          <>
+            <JobListStyled>
+              {jobs.slice(0, visibleItems).map((job) => (
+                <Job job={job} key={job.id} />
+              ))}
+            </JobListStyled>
+            <LoadMoreButton
+              allLoaded={jobs.length < visibleItems ? true : false}
+              onClick={handleLoadClick}
+            >
+              Load more
+            </LoadMoreButton>
+          </>
+        )}
       </JobListContainer>
       <ScrollToTop />
     </OuterContainer>
@@ -59,6 +75,17 @@ const JobListStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 65px 30px;
+
+  @media (max-width: 808px) {
+    grid-template-columns: repeat(auto-fit, minmax(339px, 1fr));
+    column-gap: 10px;
+  }
+
+  @media (max-width: 395px) {
+    padding-top: 57px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    column-gap: 10px;
+  }
 `;
 
 const LoadMoreButton = styled(Button)`

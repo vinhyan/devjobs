@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         position: relative;
         background: no-repeat url("/./assets/desktop/bg-pattern-header.svg");
-        padding: 0 165px 0 165px;
+        padding: 0 165px;
         background-color: #F2F2F2;
         color: #6E8098;
 
@@ -60,27 +60,53 @@ const GlobalStyles = createGlobalStyle`
         
         li {
             margin-left: 16.14px;
-
+            width: calc(100% - 41.14px);
+            
             &::marker {
                 color: #5964E0;
                 font-weight: bold;
                 padding-left: 25px;
-
             }
+
             span {
                 position: relative;
                 left: 25px;
             }
         }
     }
+    //
 
- 
+    @media (min-width: 768px) and (max-width: 1355px) {
+        body {
+            padding: 0 40px;
+        }
 
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 0 24px;    
+            background: no-repeat url("/./assets/tablet/bg-pattern-header.svg");
+            background-color: #F2F2F2;
+        }
+
+    }
+
+    @media (max-width: 375px) {
+        body {
+            
+            background: no-repeat url("/./assets/mobile/bg-pattern-header.svg");
+            background-color: #F2F2F2;
+        }
+
+    }
    
 `;
 
 export const Button = styled.button`
-  width: 123px;
+  padding: 0 10px;
+  max-width: 100%;
+  /* max-width: 150px; */
   height: 48px;
   background: #5964e0;
   border-radius: 5px;
@@ -93,7 +119,5 @@ export const Button = styled.button`
     background: #939bf4;
   }
 `;
-
-
 
 export default GlobalStyles;
