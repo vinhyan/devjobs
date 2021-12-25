@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import jobsSlice from "./features/jobsSlice";
 import searchSlice from "./features/searchSlice";
+import darkModeSlice from "./features/darkModeSlice";
 
 export default configureStore({
   middleware: (getDefaultMiddleware) =>
@@ -10,5 +11,6 @@ export default configureStore({
   reducer: {
     jobListing: jobsSlice,
     search: searchSlice,
+    darkMode: darkModeSlice,
   },
 });

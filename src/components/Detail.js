@@ -31,7 +31,7 @@ const Detail = () => {
             <div className="title">
               <span>{selectedJob.postedAt}</span> &#183;{" "}
               <span>{selectedJob.contract}</span>
-              <h1>{selectedJob.position}</h1>
+              <h3 className="position">{selectedJob.position}</h3>
               <h4>{selectedJob.location}</h4>
             </div>
             <ApplyButton>Apply Now</ApplyButton>
@@ -63,11 +63,11 @@ const Detail = () => {
       </DetailStyled>
       <ActionCallStyled>
         <div className="wrap">
-          <div className="title">
-            <h1>{selectedJob.position}</h1>
+          <div className="footer-title">
+            <h3>{selectedJob.position}</h3>
             <p>{selectedJob.company}</p>
           </div>
-          <Button>Apply Now</Button>
+          <ApplyButton>Apply Now</ApplyButton>
         </div>
       </ActionCallStyled>
       <ScrollToTop />
@@ -83,7 +83,7 @@ const DetailStyled = styled.div`
 
   .banner {
     position: relative;
-    background: #ffffff;
+    background: ${(prop) => prop.theme.card.bgColor};
     display: flex;
     border-radius: 6px;
 
@@ -147,16 +147,21 @@ const DetailStyled = styled.div`
 
 const CompanyButton = styled(Button)`
   /* width: 147px; */
-  background: rgba(89, 100, 224, 0.1);
+  background: ${(prop) => prop.theme.card.companyButton};
   mix-blend-mode: normal;
-  color: rgba(89, 100, 224, 1);
+  color: ${(prop) => prop.theme.card.companyButtonText};
   padding: 16px 20px;
+
+  &:hover {
+    background: ${(prop) => prop.theme.card.companyButtonHover};
+  }
 `;
 
 const ContentStyled = styled.div`
-  background: #ffffff;
+  background: ${(prop) => prop.theme.card.bgColor};
   margin: 32px 0 80px 0;
   padding: 48px 43px 48px 48px;
+  border-radius: 6px;
 
   .intro {
     padding-top: 40px;
@@ -187,6 +192,7 @@ const ContentStyled = styled.div`
 `;
 
 const ApplyButton = styled(Button)`
+  padding: 0 28.5px;
   @media (max-width: 480px) {
     width: 100%;
   }
@@ -200,19 +206,25 @@ const TopContainer = styled.div`
   gap: 15px;
 
   .title {
-    h1 {
+    .position {
       padding: 8px 0;
-     
+      font-size: 26px;
     }
   }
 
   @media (max-width: 480px) {
     gap: 50px;
+
+    .title {
+      .position {
+        font-size: 20px;
+      }
+    }
   }
 `;
 
 const ActionCallStyled = styled.div`
-  background: #ffffff;
+  background: ${(prop) => prop.theme.card.bgColor};
   z-index: 1;
   position: absolute;
   width: 100%;
@@ -229,8 +241,19 @@ const ActionCallStyled = styled.div`
 
   @media (max-width: 810px) {
     padding: 23px 40px;
+
     .wrap {
       width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 24px;
+
+    .wrap {
+      .footer-title {
+        display: none;
+      }
     }
   }
 `;

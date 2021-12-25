@@ -89,6 +89,7 @@ const JobListStyled = styled.div`
 `;
 
 const LoadMoreButton = styled(Button)`
+  padding: 16px 30px;
   background: ${(props) => (props.allLoaded ? "#939bf4" : "#5964e0")};
   pointer-events: ${(props) => (props.allLoaded ? "none" : "auto")};
 `;

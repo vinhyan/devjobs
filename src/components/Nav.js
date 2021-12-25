@@ -6,15 +6,24 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 //redux
 import { clearSearch } from "../features/searchSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearFilteredJobs } from "../features/jobsSlice";
+import { toggleDarkMode, darkModeSelect } from "../features/darkModeSlice";
 
 const Nav = () => {
   const dispatch = useDispatch();
+  const darkMode = useSelector(darkModeSelect);
+
   const handleClick = () => {
     dispatch(clearSearch);
     dispatch(clearFilteredJobs);
   };
+
+  const handleDarkModeChange = (e) => {
+    let isDarkMode = e.target.checked ? true : false;
+    dispatch(toggleDarkMode(isDarkMode));
+  };
+
   return (
     <NavStyled>
       <div className="header">
@@ -30,7 +39,12 @@ const Nav = () => {
             />
           </svg>
           <label className="switch">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={handleDarkModeChange}
+              value={darkMode}
+              checked={darkMode}
+            />
             <span className="slider"></span>
           </label>
 

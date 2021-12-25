@@ -39,7 +39,6 @@ const LinkStyled = styled(Link)`
 
 const JobStyled = styled.div`
   cursor: pointer;
-  /* margin: 80px 0; */
   position: relative;
   .logo {
     width: 50px;
@@ -55,7 +54,7 @@ const JobStyled = styled.div`
   }
 
   .container {
-    background-color: white;
+    background-color: ${(prop) => prop.theme.card.bgColor};
     padding: 49px 32px 36px 32px;
     border-radius: 6px;
 

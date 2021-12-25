@@ -1,19 +1,54 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+
+export const lightModeSet = {
+  body: {
+    bgColor: "#F2F2F2",
+    fontColor: "#6E8098",
+  },
+  card: {
+    bgColor: "#FFFFFF",
+    checkbox: "#19202d",
+    fontColor: "#19202D",
+    companyButtonText: "rgba(89, 100, 224, 1)",
+    companyButton: "rgba(89, 100, 224, 0.1)",
+    companyButtonHover: "rgba(89, 100, 224, 0.35)",
+  },
+};
+
+export const darkModeSet = {
+  body: {
+    bgColor: "#121721",
+    fontColor: "#FFFFFF",
+  },
+  card: {
+    bgColor: "#19202D",
+    checkbox: "rgba(255, 255, 255, 1)",
+    fontColor: "#FFFFFF",
+    companyButtonText: "#FFFFFF",
+    companyButton: "rgba(255, 255, 255, 0.1)",
+    companyButtonHover: "rgba(255, 255, 255, 0.35)",
+  },
+};
+
 const GlobalStyles = createGlobalStyle`
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
         font-family: 'Kumbh Sans', sans-serif;
+        
     }
 
     body {
         position: relative;
-        background: no-repeat url("/./assets/desktop/bg-pattern-header.svg");
+        background-image: url("/./assets/desktop/bg-pattern-header.svg");
+        background-repeat: no-repeat;
+        background-size: 100% 160px;
         padding: 0 165px;
-        background-color: #F2F2F2;
+        background-color: ${(prop) => prop.theme.body.bgColor};
         color: #6E8098;
+        
 
     }
 
@@ -33,7 +68,7 @@ const GlobalStyles = createGlobalStyle`
     h3 {
         font-size: 20px;
         line-height: 24px;
-        color: #19202D;
+        color: ${(prop) => prop.theme.card.fontColor};
 
     }
 
@@ -49,6 +84,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         line-height: 26px;
         color: #6E8098;
+        
 
     }
 
@@ -74,9 +110,9 @@ const GlobalStyles = createGlobalStyle`
             }
         }
     }
-    //
+    
 
-    @media (min-width: 768px) and (max-width: 1355px) {
+    @media (max-width: 1355px) and (min-width: 768px)  {
         body {
             padding: 0 40px;
         }
@@ -86,27 +122,21 @@ const GlobalStyles = createGlobalStyle`
     @media (max-width: 768px) {
         body {
             padding: 0 24px;    
-            background: no-repeat url("/./assets/tablet/bg-pattern-header.svg");
-            background-color: #F2F2F2;
+            background-image: url("/./assets/tablet/bg-pattern-header.svg");
+            background-size: auto;
         }
-
     }
 
     @media (max-width: 375px) {
         body {
-            
-            background: no-repeat url("/./assets/mobile/bg-pattern-header.svg");
-            background-color: #F2F2F2;
+            background-image: url("/./assets/mobile/bg-pattern-header.svg");
         }
-
     }
-   
 `;
 
 export const Button = styled.button`
   padding: 0 10px;
   max-width: 100%;
-  /* max-width: 150px; */
   height: 48px;
   background: #5964e0;
   border-radius: 5px;

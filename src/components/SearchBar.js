@@ -87,7 +87,7 @@ const SearchBar = () => {
       </SearchMobileButton>
 
       <FullTimeFilter toggle={mobileFilter}>
-        <div className="border"></div>
+        <div className="border top"></div>
         <div className="location-filter ">
           <svg width="17" height="24" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -133,13 +133,15 @@ const SearchBarStyled = styled.form`
   gap: 32px;
   padding: 0 16px;
   border-radius: 6px;
-  background: #ffffff;
+  background: ${(prop) => prop.theme.card.bgColor};
   height: 80px;
 
-  input {
+  input[type="text"] {
     border: none;
     height: 24px;
     font-size: 16px;
+    background: ${(prop) => prop.theme.card.bgColor};
+    color: ${(prop) => prop.theme.card.fontColor};
 
     &:focus {
       outline: none;
@@ -208,12 +210,12 @@ const SearchMobileButton = styled(Button)`
 `;
 
 const FullTimeFilter = styled.div`
-  color: #19202d;
+  color: ${(prop) => prop.theme.card.checkbox};
   display: flex;
   align-items: center;
   width: 65%;
   justify-content: space-between;
-  gap: 32px;
+  gap: 25px;
 
   .location-filter {
     display: flex;
@@ -256,7 +258,7 @@ const FullTimeFilter = styled.div`
     left: 0;
     height: 24px;
     width: 24px;
-    background: #19202d;
+    background: ${(prop) => prop.theme.card.checkbox};
     mix-blend-mode: normal;
     opacity: 0.1;
     border-radius: 3px;
@@ -278,8 +280,8 @@ const FullTimeFilter = styled.div`
     background-position: center;
   }
 
-  @media (max-width: 768px) {
-    gap: 20px;
+  @media (max-width: 950px) {
+    gap: 16px;
 
     .checkbox-container {
       .only {
@@ -299,17 +301,20 @@ const FullTimeFilter = styled.div`
     transform: translate(-50%, -50%)
       ${(prop) => (prop.toggle ? "scale(1)" : "scale(0)")};
     z-index: 20;
-    background: #ffffff;
+    background: ${(prop) => prop.theme.card.bgColor};
     flex-direction: column;
     align-items: flex-start;
     border-radius: 6px;
-    background: #ffffff;
     gap: 0;
     z-index: 50;
 
     .border {
       width: 100%;
       height: 1px;
+    }
+
+    .top {
+      display: none;
     }
 
     .location-filter {
@@ -323,7 +328,7 @@ const FullTimeFilter = styled.div`
 
     .checkbox-container {
       width: calc(100% - 48px);
-      margin: 24px;
+      margin: 29px 24px;
     }
   }
 `;
