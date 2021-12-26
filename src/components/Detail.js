@@ -16,7 +16,7 @@ const Detail = () => {
       <DetailStyled selectedJob={selectedJob}>
         <div className="banner">
           <div className="logo">
-            <img src={`/${selectedJob.logo}`} alt={selectedJob.company} />
+            <img src={selectedJob.logo} alt={selectedJob.company} />
           </div>
           <div className="company-info">
             <div>

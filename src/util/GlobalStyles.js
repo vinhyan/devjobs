@@ -40,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         position: relative;
-        background-image: url("/assets/desktop/bg-pattern-header.svg");
+        background-image: url("./assets/desktop/bg-pattern-header.svg");
         background-repeat: no-repeat;
         background-size: 100% 160px;
         padding: 0 165px;
@@ -118,14 +118,14 @@ const GlobalStyles = createGlobalStyle`
     @media (max-width: 768px) {
         body {
             padding: 0 24px;    
-            background-image: url("/assets/tablet/bg-pattern-header.svg");
+            background-image: url("./assets/tablet/bg-pattern-header.svg");
             background-size: auto;
         }
     }
 
     @media (max-width: 375px) {
         body {
-            background-image: url("/assets/mobile/bg-pattern-header.svg");
+            background-image: url("./assets/mobile/bg-pattern-header.svg");
         }
     }
 `;
