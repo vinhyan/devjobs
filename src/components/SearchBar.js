@@ -275,7 +275,7 @@ const FullTimeFilter = styled.div`
   .checkbox-container .checkbox:checked ~ .checkmark {
     background-color: #5964e0;
     opacity: 1;
-    background-image: url("/./assets/desktop/icon-check.svg");
+    background-image: url("/assets/desktop/icon-check.svg");
     background-repeat: no-repeat;
     background-position: center;
   }
