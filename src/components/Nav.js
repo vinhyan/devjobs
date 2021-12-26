@@ -27,7 +27,7 @@ const Nav = () => {
   return (
     <NavStyled>
       <div className="header">
-        <LinkStyled to="/" onClick={handleClick}>
+        <LinkStyled to="/devjobs" onClick={handleClick}>
           <h1>devjobs</h1>
         </LinkStyled>
         <div className="darkmode">

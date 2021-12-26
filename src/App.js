@@ -22,8 +22,8 @@ function App() {
         <GlobalStyles />
         <Nav />
         <Routes>
-          <Route path="/" element={<JobList />} />
-          <Route path="/job/:id" element={<Detail />} />
+          <Route path="/devjobs" element={<JobList />} />
+          <Route path="/devjobs/job/:id" element={<Detail />} />
         </Routes>
         <ScrollToTop />
       </ThemeProvider>

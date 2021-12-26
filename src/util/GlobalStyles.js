@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-
 export const lightModeSet = {
   body: {
     bgColor: "#F2F2F2",
