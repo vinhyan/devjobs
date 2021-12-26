@@ -36,7 +36,6 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         font-family: 'Kumbh Sans', sans-serif;
-        
     }
 
     body {
@@ -47,8 +46,6 @@ const GlobalStyles = createGlobalStyle`
         padding: 0 165px;
         background-color: ${(prop) => prop.theme.body.bgColor};
         color: #6E8098;
-        
-
     }
 
     h1 {
