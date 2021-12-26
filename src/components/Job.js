@@ -16,7 +16,7 @@ const Job = ({ job }) => {
 
   return (
     <JobStyled onClick={() => handleJobClick(job)} job={job}>
-      <LinkStyled to={`devjobs/job/${job.id}`}>
+      <LinkStyled to={`/devjobs/job/${job.id}`}>
         <div className="logo">
           <img src={job.logo} alt={job.company} />
         </div>
