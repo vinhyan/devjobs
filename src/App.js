@@ -22,7 +22,7 @@ function App() {
         <GlobalStyles />
         <Nav />
         <Routes>
-          <Route path="/devjobs" element={<JobList />} />
+          <Route path="/devjobs/" element={<JobList />} />
           <Route path="/devjobs/job/:id" element={<Detail />} />
         </Routes>
         <ScrollToTop />
