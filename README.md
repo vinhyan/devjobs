@@ -33,13 +33,13 @@ Users should be able to:
 #### Tablet
 
 ![Front - Light Mode](./reference/front-tablet-light.png)
-![Detail - Light Mode](./reference/detail-tablet-dark.png)
+![Detail - Light Mode](./reference/detail-tablet-light.png)
 
 #### Mobile
 
 ![Front - Light Mode](./reference/front-mobile.png)
-![Search Filter - Light Mode](./reference/front-search-filter-mobile.png)
-![Detail - Light Mode](./reference/mobile-dark.png)
+![Search Filter - Light Mode](./reference/search-filter-mobile.png)
+![Detail - Light Mode](./reference/detail-mobile.png)
 
 ### Links
 
